@@ -45,7 +45,7 @@ $("#image-selector").change(function () {
 let model;
 (async function () {
 	
-	model = await tf.loadModel('http://rice.test.woza.work/model_1/model.json');
+	model = await tf.loadModel('http://rice.test.woza.work/model_v3/model.json');
 	$("#selected-image").attr("src", "http://rice.test.woza.work/assets/brown_spot.jpg")
 	
 	
