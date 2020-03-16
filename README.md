@@ -5,7 +5,7 @@ Live Web App: http://rice.test.woza.work/
 
 <br>
 
-<img src="http://rice.test.woza.work/assets/app_pic.png" width="350"></img>
+<img src="http://rice.test.woza.work/assets/app_pic1.png" width="350"></img>
 
 <br>
 
