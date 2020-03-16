@@ -37,6 +37,12 @@ https://www.youtube.com/watch?v=HEQDRWMK6yY
 
 
 
+
+
+
+
+
+
 // After the model loads we want to make a prediction on the default image.
 // Thus, the user will see predictions when the page is first loaded.
 
@@ -72,7 +78,6 @@ $("#image-selector").change(function () {
 		setTimeout(simulateClick.bind(null,'predict-button'), 500);
 
 });
-
 
 
 
@@ -132,17 +137,13 @@ changeStatus("...");
 
 
 
-
-
-
-
 let model;
 (async function () {
 	
-	model = await tf.loadLayersModel('http://rice.test.woza.work/model_v3/model.json',
-	{onProgress: p => move(p)});
+	model = await tf.loadLayersModel('http://apple.test.woza.work/model_v2/model.json', 
+	{onProgress: p => move(p)}); // <-- Take note of this
 	
-	$("#selected-image").attr("src", "http://rice.test.woza.work/assets/brown_spot.jpg")
+	$("#selected-image").attr("src", "http://apple.test.woza.work/assets/Train_1784_multiple_diseases.jpg")
 	
 	
 	
@@ -197,19 +198,18 @@ $("#predict-button").click(async function () {
 		}).sort(function (a, b) {
 			return b.probability - a.probability;
 				
-		}).slice(0, 3);
+		}).slice(0, 4);
 	
 	
 $("#prediction-list").empty();
 top5.forEach(function (p) {
 
-	$("#prediction-list").append(`<li>${p.className}: ${p.probability.toFixed(6)}</li>`);
+	$("#prediction-list").append(`<li>${p.className}: ${p.probability.toFixed(3)}</li>`);
 
 	
 	});
 	
-
-
+	
 });
 
 
